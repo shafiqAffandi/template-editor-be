@@ -1,0 +1,18 @@
+{
+  "name": "template-editor-be",
+  "version": "1.0.0",
+  "description": "Backend for template editor",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "msa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
