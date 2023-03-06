@@ -1,0 +1,41 @@
+{
+  "Profession": {
+    "title": "asdasd",
+    "id": "Asdasd",
+    "addButton": true,
+    "addLink": "/BREAD/${addLink}",
+    "backButton": false,
+    "paging": {
+      "pagingInput": {
+        "title": "sd",
+        "querystring": {
+          "name": "sss"
+        },
+        "exportExcel": false,
+        "component": [],
+        "headerList": [],
+        "bodyList": []
+      },
+      "criteria": []
+    }
+  },
+  "ProfessionDetail": {
+    "title": "Profession Detail",
+    "id": "ProfessionDetail",
+    "addButton": false,
+    "backButton": false,
+    "forms": {
+      "serviceUrl": {},
+      "subsection": [
+        {
+          "title": "dsds",
+          "isVertical": true,
+          "isSubsection": true,
+          "formInput": [],
+          "onLoad": [],
+          "criteria": []
+        }
+      ]
+    }
+  }
+}

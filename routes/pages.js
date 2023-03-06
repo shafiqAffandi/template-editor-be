@@ -3,12 +3,21 @@ const fs = require("fs");
 const { loadPageByName } = require("../business-logic/load-page");
 const { savePage } = require("../business-logic/add-page");
 const { getAllPages } = require("../business-logic/get-all-page");
+const { getAllLookup } = require("../business-logic/get-all-lookup");
 
 const router = express.Router();
 
 // getting all pages
 router.get("/GetAllPages", (req, res) => {
   const pages = getAllPages();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.json(pages);
+});
+
+// get all Lookup
+router.get("/GetAllLookup", (req, res) => {
+  const pages = getAllLookup();
+  res.header("Access-Control-Allow-Origin", "*");
   res.json(pages);
 });
 
@@ -20,8 +29,9 @@ router.get("/:name", (req, res) => {
 
 // creating one page
 router.post("/SavePage", (req, res) => {
-  savePage(req.body.name, req.body.data);
-  res.send("Success");
+  savePage(req.body.data);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.json("Success");
 });
 
 module.exports = router;
