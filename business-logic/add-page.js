@@ -5,9 +5,11 @@ const savePage = (data) => {
     const pageName = item.id;
     const addLink = item.addLink ?? "";
 
-    const bodyList = JSON.stringify(item.paging.pagingInput.bodyList);
-    const _bodyList = bodyList.replace("${addLink}", addLink);
-    item.paging.pagingInput.bodyList = JSON.parse(_bodyList);
+    if (item.paging) {
+      const bodyList = JSON.stringify(item.paging.pagingInput.bodyList);
+      const _bodyList = bodyList.replace("${addLink}", addLink);
+      item.paging.pagingInput.bodyList = JSON.parse(_bodyList);
+    }
     // TODO: change lookupFrom to real data
 
     const dirPath = "pages";
