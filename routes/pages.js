@@ -24,6 +24,7 @@ router.get("/GetAllLookup", (req, res) => {
 // getting one page
 router.get("/:name", (req, res) => {
   const page = loadPageByName(req.params.name);
+  res.header("Access-Control-Allow-Origin", "*");
   res.send(page);
 });
 
