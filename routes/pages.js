@@ -30,7 +30,7 @@ router.get("/:name", (req, res) => {
 
 // creating one page
 router.post("/SavePage", (req, res) => {
-  savePage(req.body.data);
+  savePage(req.body);
   res.header("Access-Control-Allow-Origin", "*");
   res.json("Success");
 });

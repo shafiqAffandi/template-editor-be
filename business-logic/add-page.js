@@ -1,8 +1,26 @@
 const fs = require("fs");
 
-const savePage = (data) => {
-  data.forEach((item) => {
+const saveMenu = (menuData, pages) => {
+  const menu = {
+    menuName: menuData.menuName,
+    pages: pages,
+  };
+
+  const dirPath = "menu";
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath);
+  }
+  const dataPath = `./${dirPath}/${menuData.menuId}.json`;
+  fs.writeFileSync(dataPath, JSON.stringify(menu), "utf-8");
+};
+
+const savePage = ({ menuData, pageData }) => {
+  const pages = [];
+
+  pageData.forEach((item) => {
     const pageName = item.id;
+    pages.push(pageName);
+
     const addLink = item.addLink ?? "";
 
     if (item.paging) {
@@ -19,6 +37,8 @@ const savePage = (data) => {
     const dataPath = `./${dirPath}/${pageName}.json`;
     fs.writeFileSync(dataPath, JSON.stringify(item), "utf-8");
   });
+
+  saveMenu(menuData, pages);
 };
 
 module.exports = { savePage };
